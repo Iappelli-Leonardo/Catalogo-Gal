@@ -1,3 +1,45 @@
-<p>search-page works!</p>
+<p>BENISSIMO</p>
 <input type="text" placeholder="cerca prodotti" [(ngModel)]="chiaveDiRicerca">
 <button (click)="cerca()">Ricerca prodotto</button>
+<button (click)="mainPage()">Main page</button>
+<hr>
+<table *ngIf="visListaCompleta">
+    <tr>
+        <th>
+            Codice
+        </th>
+        <th>
+            Descizione
+        </th>
+        <th>
+            Prezzo
+        </th>
+    </tr>
+    <tr *ngFor="let l of med.listaProdotti">
+        <td>{{l.codice}}</td>
+        <td>{{l.descrizione}}</td>
+        <td>{{l.prezzo}}</td>
+    </tr>
+</table>
+
+<table *ngIf="visListaFiltrata">
+    <tr>
+        <th>
+            Codice
+        </th>
+        <th>
+            Descizione
+        </th>
+        <th>
+            Prezzo
+        </th>
+    </tr>
+    <tr *ngFor =" let l of listaProdottiFiltrata; index as i">
+        <td>{{l.codice}}</td>
+        <td>{{l.descrizione}}</td>
+        <td>{{l.prezzo}}</td>
+        <td>
+            <button (click)= "cancella(i)">Cancella</button>
+        </td>
+    </tr>
+</table>

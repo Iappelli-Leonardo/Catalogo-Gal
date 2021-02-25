@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { MediatorService } from '../mediator.service';
 import { Prodotto } from '../prodotto';
 
@@ -20,7 +21,7 @@ export class FormPanelComponent implements OnInit {
   prodotto: Prodotto = new Prodotto();
 
 
-  constructor(public med: MediatorService) { }
+  constructor(public med: MediatorService, private router: Router) { }
 
   ngOnInit(): void {
     this.codice = this.inputCodice;
@@ -37,6 +38,7 @@ export class FormPanelComponent implements OnInit {
   ricerca() {
     console.log("Premuto tasto ricerca");
     this.cercaEvent.emit("Siamo in cercaEvent");
+    
   }
 
   conta() {
